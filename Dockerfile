@@ -25,5 +25,5 @@ ADD cleanstreamripper.sh /cleanstreamripper.sh
 COPY cleanstreamripper.sh /home/streamripper/cleanstreamripper.sh
 ADD zyx.txt /zyx.txt
 
-ENTRYPOINT ["/run.sh"]
+ENTRYPOINT ["/run.sh && cron"]
 VOLUME /home/streamripper
