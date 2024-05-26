@@ -13,17 +13,17 @@ COPY --chmod=0644 crontab /etc/cron.d/crontab
 RUN touch /var/log/cron.log
 
 
-#RUN useradd -m -d /home/streamripper streamripper
-#USER streamripper
-WORKDIR /home/streamripper
-
-# expose relay port
-EXPOSE 8000
+RUN useradd -m -d /home/streamripper streamripper
+USER streamripper
 
 ADD run.sh /run.sh
 ADD cleanstreamripper.sh /cleanstreamripper.sh
 COPY cleanstreamripper.sh /home/streamripper/cleanstreamripper.sh
 ADD zyx.txt /zyx.txt
 
+# expose relay port
+EXPOSE 8000
+
+WORKDIR /home/streamripper
 ENTRYPOINT ["/run.sh"]
-VOLUME /home/streamripper
+#VOLUME /home/streamripper
