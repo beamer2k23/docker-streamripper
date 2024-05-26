@@ -14,5 +14,6 @@ EXPOSE 8000
 
 ADD run.sh /run.sh
 ADD cleanstreamripper.sh /home/streamripper/cleanstreamripper.sh
+ADD zyx.txt /home/streamripper/zyx.txt
 ENTRYPOINT ["/run.sh"]
 VOLUME /home/streamripper
