@@ -22,9 +22,9 @@ COPY --chmod=0644 crontab /etc/cron.d/crontab
 # Give execution rights on the cron job
 #RUN chmod 0644 /etc/cron.d/crontab
 # Create the log file to be able to run tail
-RUN mkdir /var/
-RUN mkdir /var/log/
-RUN touch /var/log/cron.log
+#RUN mkdir /var/
+#RUN mkdir /var/log/
+#RUN touch /var/log/cron.log
 
 ENTRYPOINT ["/run.sh"]
 VOLUME /home/streamripper
