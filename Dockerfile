@@ -13,8 +13,8 @@ COPY --chmod=0644 crontab /etc/cron.d/crontab
 RUN touch /var/log/cron.log
 
 
-RUN useradd -m -d /home/streamripper streamripper
-USER streamripper
+#RUN useradd -m -d /home/streamripper streamripper
+#USER streamripper
 WORKDIR /home/streamripper
 
 # expose relay port
