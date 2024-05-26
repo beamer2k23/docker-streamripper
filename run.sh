@@ -1,7 +1,6 @@
 #!/bin/bash
 
-sudo cron
-#tail -f /var/log/cron.log
+cron && tail -f /var/log/cron.log
 
 if [ $# -gt 0 ]; then
   # append relay config if any parameters are given
