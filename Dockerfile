@@ -5,7 +5,6 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 RUN useradd -m -d /home/streamripper streamripper
-RUN mkdir /home/streamripper/SST
 USER streamripper
 WORKDIR /home/streamripper
 
