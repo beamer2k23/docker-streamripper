@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#cron
+sudo cron
 #tail -f /var/log/cron.log
 
 if [ $# -gt 0 ]; then
