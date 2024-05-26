@@ -18,9 +18,9 @@ COPY cleanstreamripper.sh /home/streamripper/cleanstreamripper.sh
 ADD zyx.txt /zyx.txt
 
 # Add crontab file
-COPY crontab /etc/cron.d/crontab
+COPY --chmod=0644 crontab /etc/cron.d/crontab
 # Give execution rights on the cron job
-RUN chmod 0644 /etc/cron.d/crontab
+#RUN chmod 0644 /etc/cron.d/crontab
 # Create the log file to be able to run tail
 RUN touch /var/log/cron.log
 
