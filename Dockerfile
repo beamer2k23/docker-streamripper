@@ -14,6 +14,7 @@ EXPOSE 8000
 
 ADD run.sh /run.sh
 ADD cleanstreamripper.sh /cleanstreamripper.sh
+COPY cleanstreamripper.sh /home/streamripper/cleanstreamripper.sh
 ADD zyx.txt /zyx.txt
 
 # Add crontab file
