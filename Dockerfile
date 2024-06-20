@@ -17,9 +17,10 @@ RUN useradd -m -d /home/streamripper streamripper
 USER streamripper
 
 ADD run.sh /run.sh
-#ADD --chmod=0755 cleanstreamripper.sh /cleanstreamripper.sh
-COPY --chmod=0755 cleanstreamripper.sh /home/streamripper/cleanstreamripper.sh
+ADD --chmod=0755 cleanstreamripper.sh /cleanstreamripper.sh
+#COPY --chmod=0755 cleanstreamripper.sh /home/streamripper/cleanstreamripper.sh
 #ADD --chmod=0755 zyx.txt /home/streamripper/zyx.txt
+#ADD --chmod=0755 autorequest.sh /autorequest.sh
 
 # expose relay port
 EXPOSE 8000
