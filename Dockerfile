@@ -8,6 +8,7 @@ RUN apt-get update && \
 # Add crontab file
 #COPY --chmod=0644 crontab /etc/cron.d/crontab
 COPY crontab /etc/cron.d/crontab
+RUN chmod 0644 /etc/cron.d/crontab
 # Give execution rights on the cron job
 #RUN chmod 0644 /etc/cron.d/crontab
 # Create the log file to be able to run tail
