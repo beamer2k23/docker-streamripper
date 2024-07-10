@@ -1,6 +1,6 @@
 #!/usr/bin/sh
 
-cd /home/SST
+cd /home/streamripper/destination
 
 ls -A1 ./*.mp3 | while read SOURCETRACKFILENAME; do
 
@@ -25,5 +25,6 @@ rm "LISTING_REMOVE.txt"
 rm "LISTING.txt"
 
 
-cd /home/SST/incomplete
+# delete older incomplete files
+cd /home/streamripper/destination/incomplete
 find . -name "*.mp3" -type f -mtime +1 -print0 | xargs -0 rm -f
