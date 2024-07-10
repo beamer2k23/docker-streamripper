@@ -23,6 +23,7 @@ ADD cleanstreamripper.sh /cleanstreamripper.sh
 #COPY --chmod=0755 cleanstreamripper.sh /home/streamripper/cleanstreamripper.sh
 #ADD --chmod=0755 zyx.txt /home/streamripper/zyx.txt
 #ADD --chmod=0755 autorequest.sh /autorequest.sh
+RUN mkdir -p /home/streamripper/destination
 
 # expose relay port
 EXPOSE 8000
