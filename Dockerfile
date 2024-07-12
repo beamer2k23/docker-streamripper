@@ -6,11 +6,11 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 # Add crontab file
-#COPY --chmod=0644 crontab /etc/cron.d/crontab
+#COPY --chmod0644 crontab /etc/cron.d/crontab
 COPY crontab /etc/cron.d/crontab
-RUN chmod 0644 /etc/cron.d/crontab
+RUN chmod 644 /etc/cron.d/crontab
 # Give execution rights on the cron job
-#RUN chmod 0644 /etc/cron.d/crontab
+#RUN chmod 644 /etc/cron.d/crontab
 # Create the log file to be able to run tail
 RUN touch /var/log/cron.log
 
@@ -18,11 +18,11 @@ RUN touch /var/log/cron.log
 RUN useradd -m -d /home/streamripper streamripper
 USER streamripper
 
-ADD run.sh /run.sh
-ADD cleanstreamripper.sh /cleanstreamripper.sh
+COPY run.sh /run.sh
+COPY cleanstreamripper.sh /cleanstreamripper.sh
 #COPY --chmod=0755 cleanstreamripper.sh /home/streamripper/cleanstreamripper.sh
-#ADD --chmod=0755 zyx.txt /home/streamripper/zyx.txt
-#ADD --chmod=0755 autorequest.sh /autorequest.sh
+#COPY --chmod=0755 zyx.txt /home/streamripper/zyx.txt
+#COPY --chmod=0755 autorequest.sh /autorequest.sh
 RUN mkdir -p /home/streamripper/destination
 
 # expose relay port
