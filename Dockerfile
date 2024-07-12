@@ -7,12 +7,13 @@ RUN apt-get update && \
 
 # Add crontab file
 #COPY --chmod=644 crontab /etc/cron.d/crontab
-COPY crontab /etc/cron.d/crontab
+COPY mycrontabfile /etc/cron.d/mycrontabfile
 # Give execution rights on the cron job
-RUN chmod 644 /etc/cron.d/crontab
+RUN chmod 644 /etc/cron.d/mycrontabfile
+#RUN crontab mycrontabfile
 # Create the log file to be able to run tail
 RUN touch /var/log/cron.log
-RUN mkdir -p /var/run/cron
+
 
 RUN useradd -m -d /home/streamripper streamripper
 USER streamripper
