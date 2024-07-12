@@ -1,3 +1,4 @@
 #*/5 * * * * pidof streamripper || /sbin/reboot
-0 */3 * * * sh /cleanstreamripper.sh
+#0 */3 * * * sh /cleanstreamripper.sh
+0 */3 * * * date
 #*/42 * * * * sh /autorequest.sh
