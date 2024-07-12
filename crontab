@@ -1,4 +1,4 @@
 #*/5 * * * * pidof streamripper || /sbin/reboot
 #0 */3 * * * sh /cleanstreamripper.sh
-0 */3 * * * date >> /var/log/cron.log 2>&1
+*/1 * * * * date >> /var/log/cron.log 2>&1
 #*/42 * * * * sh /autorequest.sh
