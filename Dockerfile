@@ -9,7 +9,7 @@ RUN apt-get update && \
 #COPY --chmod=644 crontab /etc/cron.d/crontab
 COPY crontab /etc/cron.d/crontab
 # Give execution rights on the cron job
-RUN chmod 644 /etc/cron.d
+RUN chmod 755 /var/run
 RUN chmod 644 /etc/cron.d/crontab
 # Create the log file to be able to run tail
 RUN touch /var/log/cron.log
