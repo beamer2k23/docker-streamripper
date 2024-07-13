@@ -3,11 +3,14 @@ FROM debian:trixie-slim
 RUN apt-get update && \
     apt-get install -y --no-install-recommends streamripper && \
     apt-get install -y --no-install-recommends cron && \
+    apt-get install -y --no-install-recommends vim && \
     rm -rf /var/lib/apt/lists/*
 
+RUN chown default:root /var/run
 # Add crontab file
 #COPY --chmod=644 crontab /etc/cron.d/crontab
-COPY mycrontabfile /etc/cron.d/mycrontabfile
+#COPY mycrontabfile /etc/cron.d/mycrontabfile
+RUN echo "*/1 * * * * date >> /var/log/cron.log 2>&1" >> /etc/cron.d/mycrontabfile
 # Give execution rights on the cron job
 RUN chmod 644 /etc/cron.d/mycrontabfile
 #RUN crontab mycrontabfile
