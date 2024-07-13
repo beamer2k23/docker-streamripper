@@ -24,14 +24,14 @@ RUN chmod 777 /var/log/cron.log
 RUN useradd -m -d /home/streamripper streamripper && echo "streamripper:streamripper" | chpasswd && adduser streamripper sudo
 USER streamripper
 
-COPY run.sh /run.sh
-COPY cleanstreamripper.sh /cleanstreamripper.sh
+COPY --chmod=755 run.sh /run.sh
+COPY --chmod=755 cleanstreamripper.sh /cleanstreamripper.sh
 #COPY --chmod=0755 cleanstreamripper.sh /home/streamripper/cleanstreamripper.sh
 #COPY --chmod=0755 zyx.txt /home/streamripper/zyx.txt
 #COPY --chmod=0755 autorequest.sh /autorequest.sh
 RUN mkdir -p /home/streamripper/destination
 
-RUN (crontab -l 2>/dev/null; echo "*/1 * * * * echo test >> /home/streamripper/test.txt") | crontab -
+RUN (crontab -l 2>/dev/null; echo "*/1 * * * * date >> /home/streamripper/destination/crontest.txt") | crontab -
 
 # expose relay port
 EXPOSE 8000
