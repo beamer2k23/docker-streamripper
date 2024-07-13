@@ -7,7 +7,7 @@ ls -A1 ./*.mp3 | while read SOURCETRACKFILENAME; do
 	ALBUM="${SOURCETRACKFILENAME#*- }"
 	ALBUM="${ALBUM%% - *mp3}"
 	#ALBUM="(?<=^- )\S.*?(?= - )"
-	echo -e "${ALBUM}\n" >> "LISTING.txt"	# mit Windows-Newline \n für Vergleichbarkeit mit ZYX.txt
+	echo "${ALBUM}" >> "LISTING.txt"	# mit Windows-Newline \n für Vergleichbarkeit mit ZYX.txt
 	
 done
 
