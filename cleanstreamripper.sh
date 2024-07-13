@@ -11,7 +11,7 @@ ls -A1 ./*.mp3 | while read SOURCETRACKFILENAME; do
 	
 done
 
-grep -Fx -f "LISTING.txt" "../zyx.txt" > "LISTING_REMOVE.txt"
+grep -Fx -f "LISTING.txt" "zyx.txt" > "LISTING_REMOVE.txt"
 
 
 while read ALBUM
