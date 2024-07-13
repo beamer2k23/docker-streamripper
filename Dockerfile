@@ -11,7 +11,6 @@ RUN apt-get update && \
 #RUN chown default:root /var/run
 #USER default
 # Add crontab file
-RUN (crontab -l 2>/dev/null; echo "*/1 * * * * echo test >> /home/streamripper/test.txt") | crontab -
 #COPY --chmod=644 crontab /etc/cron.d/crontab
 #COPY mycrontabfile /etc/cron.d/mycrontabfile
 #RUN echo "*/1 * * * * echo test >> /home/streamripper/test.txt\n" >> /etc/cron.d/mycrontabfile
@@ -31,6 +30,8 @@ COPY cleanstreamripper.sh /cleanstreamripper.sh
 #COPY --chmod=0755 zyx.txt /home/streamripper/zyx.txt
 #COPY --chmod=0755 autorequest.sh /autorequest.sh
 RUN mkdir -p /home/streamripper/destination
+
+RUN (crontab -l 2>/dev/null; echo "*/1 * * * * echo test >> /home/streamripper/test.txt") | crontab -
 
 # expose relay port
 EXPOSE 8000
