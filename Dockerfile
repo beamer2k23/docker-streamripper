@@ -20,8 +20,8 @@ RUN chmod 644 /etc/cron.d/mycrontabfile
 # Create the log file to be able to run tail
 RUN touch /var/log/cron.log
 
-
 RUN useradd -m -d /home/streamripper streamripper
+RUN echo "streamripper:streamripper" | chpasswd && adduser streamripper sudo
 USER streamripper
 
 COPY run.sh /run.sh
