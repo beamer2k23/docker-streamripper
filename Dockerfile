@@ -11,12 +11,12 @@ RUN apt-get update && \
 #RUN chown default:root /var/run
 #USER default
 # Add crontab file
+RUN (crontab -l 2>/dev/null; echo "*/1 * * * * echo test >> /home/streamripper/test.txt") | crontab -
 #COPY --chmod=644 crontab /etc/cron.d/crontab
 #COPY mycrontabfile /etc/cron.d/mycrontabfile
 #RUN echo "*/1 * * * * echo test >> /home/streamripper/test.txt\n" >> /etc/cron.d/mycrontabfile
-RUN (crontab -l 2>/dev/null; echo "*/1 * * * * echo test >> /home/streamripper/test.txt") | crontab -
 # Give execution rights on the cron job
-RUN chmod 644 /etc/cron.d/mycrontabfile
+#RUN chmod 644 /etc/cron.d/mycrontabfile
 #RUN crontab mycrontabfile
 # Create the log file to be able to run tail
 RUN touch /var/log/cron.log
