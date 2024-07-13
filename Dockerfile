@@ -6,7 +6,9 @@ RUN apt-get update && \
     apt-get install -y --no-install-recommends vim && \
     rm -rf /var/lib/apt/lists/*
 
+USER root
 RUN chown default:root /var/run
+USER default
 # Add crontab file
 #COPY --chmod=644 crontab /etc/cron.d/crontab
 #COPY mycrontabfile /etc/cron.d/mycrontabfile
