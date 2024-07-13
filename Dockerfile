@@ -2,6 +2,7 @@ FROM debian:trixie-slim
 
 RUN apt-get update && \
     apt-get install -y --no-install-recommends streamripper && \
+    apt-get install -y --no-install-recommends sudo && \
     apt-get install -y --no-install-recommends cron && \
     apt-get install -y --no-install-recommends vim && \
     rm -rf /var/lib/apt/lists/*
