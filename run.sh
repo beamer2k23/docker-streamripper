@@ -1,6 +1,7 @@
 #!/bin/bash
 
-echo streamripper | sudo -S cron && tail -f /var/log/cron.log
+echo streamripper | sudo -S cron
+#tail -f /var/log/cron.log
 
 #if [ $# -gt 0 ]; then
 # append relay config if any parameters are given
