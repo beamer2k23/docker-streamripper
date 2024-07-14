@@ -7,17 +7,6 @@ RUN apt-get update && \
     apt-get install -y --no-install-recommends vim && \
     rm -rf /var/lib/apt/lists/*
 
-#USER root
-#RUN chown default:root /var/run
-#USER default
-# Add crontab file
-#COPY --chmod=644 crontab /etc/cron.d/crontab
-#COPY mycrontabfile /etc/cron.d/mycrontabfile
-#RUN echo "*/1 * * * * echo test >> /home/streamripper/test.txt\n" >> /etc/cron.d/mycrontabfile
-# Give execution rights on the cron job
-#RUN chmod 644 /etc/cron.d/mycrontabfile
-#RUN crontab mycrontabfile
-# Create the log file to be able to run tail
 RUN touch /var/log/cron.log
 RUN chmod 777 /var/log/cron.log
 
@@ -26,12 +15,10 @@ USER streamripper
 
 COPY --chmod=755 run.sh /run.sh
 COPY --chmod=755 cleanstreamripper.sh /cleanstreamripper.sh
-#COPY --chmod=0755 cleanstreamripper.sh /home/streamripper/cleanstreamripper.sh
-#COPY --chmod=0755 zyx.txt /home/streamripper/zyx.txt
-#COPY --chmod=0755 autorequest.sh /autorequest.sh
 RUN mkdir -p /home/streamripper/destination
 
-RUN (crontab -l 2>/dev/null; echo "*/1 * * * * date >> /home/streamripper/destination/crontest.txt") | crontab -
+#RUN (crontab -l 2>/dev/null; echo "*/1 * * * * date >> /home/streamripper/destination/crontest.txt") | crontab -
+RUN (crontab -l 2>/dev/null; echo "0 */3 * * * /cleanstreamripper.sh") | crontab -
 
 # expose relay port
 EXPOSE 8000
