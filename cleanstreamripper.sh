@@ -1,4 +1,4 @@
-#!/usr/bin/sh
+#!/usr/bin/bash
 
 cd /home/streamripper/destination
 
@@ -18,8 +18,8 @@ if [ -f "zyx.txt" ]; then
 	
 	while read ALBUM
 	do
-		#ALBUM=${ALBUM//[$'\t\r\n']}	# ZEILENUMBRUECHE ENTFERNEN
-		rm -f " - ${ALBUM} - "*.mp3
+		ALBUM=${ALBUM//[$'\t\r\n']}	# ZEILENUMBRUECHE ENTFERNEN
+		rm -f \ -\ ${ALBUM}\ -\ *.mp3
 	done < "LISTING_REMOVE.txt"
 	#done < "../ZYX.txt"
 	
