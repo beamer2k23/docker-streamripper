@@ -28,6 +28,22 @@ if [ -f "zyx.txt" ]; then
 
 fi
 
+
+
+FREESPACE_THRESHOLD_MB=1500
+
+# Verfügbaren Speicherplatz ermitteln
+availableSpace=$(df --output=avail . | tail -n 1)
+
+# Vergleichen und Meldung ausgeben
+if [ "$availableSpace" -lt "$((FREESPACE_THRESHOLD_MB * 1024))" ]; then
+	echo mv -f *.mp3 /home/streamripper/storage/
+fi
+
+
+
+
 # delete older incomplete files
 cd /home/streamripper/destination/incomplete
 find . -name "*.mp3" -type f -mtime +1 -print0 | xargs -0 rm -f
+
