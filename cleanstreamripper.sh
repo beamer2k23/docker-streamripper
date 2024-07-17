@@ -15,13 +15,11 @@ if [ -f "zyx.txt" ]; then
 	
 	grep -Fx -f "LISTING.txt" "zyx.txt" > "LISTING_REMOVE.txt"
 	
-	
 	while read ALBUM
 	do
 		ALBUM=${ALBUM//[$'\t\r\n']}	# ZEILENUMBRUECHE ENTFERNEN
 		rm -f \ -\ "${ALBUM}"\ -\ *.mp3
 	done < "LISTING_REMOVE.txt"
-	#done < "../ZYX.txt"
 	
 	rm "LISTING_REMOVE.txt"
 	rm "LISTING.txt"
@@ -30,14 +28,14 @@ fi
 
 
 
-FREESPACE_THRESHOLD_MB=1500
+FREESPACE_THRESHOLD_MB=100
 
 # Verfügbaren Speicherplatz ermitteln
 availableSpace=$(df --output=avail . | tail -n 1)
 
 # Vergleichen und Meldung ausgeben
 if [ "$availableSpace" -lt "$((FREESPACE_THRESHOLD_MB * 1024))" ]; then
-	echo mv -f *.mp3 /home/streamripper/storage/
+	mv -f *.mp3 /home/streamripper/storage/
 fi
 
 
