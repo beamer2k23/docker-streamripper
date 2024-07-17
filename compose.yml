@@ -1,0 +1,12 @@
+version: '3'
+services:
+  streamripper-SST:
+    image: docker-streamripper:latest
+    container_name: streamripper-SST
+    restart: unless-stopped
+    volumes:
+      - /media/USB2GB/SST:/home/streamripper/destination
+      - /media/DS500/SST:/home/streamripper/storage
+    environment:
+      - STREAMRIPPERSERVER=http://hi5.streamingsoundtracks.com
+      
