@@ -18,7 +18,7 @@ if [ -f "zyx.txt" ]; then
 	while read ALBUM
 	do
 		ALBUM=${ALBUM//[$'\t\r\n']}	# ZEILENUMBRUECHE ENTFERNEN
-		rm -f \ -\ "${ALBUM}"\ -\ *.mp3
+		rm -f " - ${ALBUM} - "*.mp3
 	done < "LISTING_REMOVE.txt"
 	
 	rm "LISTING_REMOVE.txt"
