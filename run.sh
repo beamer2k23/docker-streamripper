@@ -7,5 +7,6 @@ echo "streamripper started..."
 #fi
 
 echo streamripper | sudo -S cron
-#tail -f /var/log/cron.log
+tail -f /var/log/cron.log
 
+echo "up and running..."
