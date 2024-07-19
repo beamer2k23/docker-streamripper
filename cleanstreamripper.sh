@@ -1,6 +1,13 @@
 #!/usr/bin/bash
 
+
 cd /home/streamripper/destination
+
+FREESPACE_THRESHOLD_MB=1800
+# Verfügbaren Speicherplatz ermitteln
+availableSpace=$(df --output=avail . | tail -n 1)
+
+
 
 if [ -f "zyx.txt" ]; then
 
@@ -27,11 +34,6 @@ if [ -f "zyx.txt" ]; then
 fi
 
 
-
-FREESPACE_THRESHOLD_MB=100
-
-# Verfügbaren Speicherplatz ermitteln
-availableSpace=$(df --output=avail . | tail -n 1)
 
 # Vergleichen und Meldung ausgeben
 if [ "$availableSpace" -lt "$((FREESPACE_THRESHOLD_MB * 1024))" ]; then
