@@ -45,5 +45,5 @@ fi
 
 # delete older incomplete files
 cd /home/streamripper/destination/incomplete
-find . -name "*.mp3" -type f -mmin 60 +1 -print0 | xargs -0 rm -f
+find . -name "*.mp3" -type f -mmin +60 -print0 | xargs -0 rm -f
 
