@@ -6,7 +6,9 @@ streamripper $STREAMRIPPERSERVER -d /home/streamripper/destination -D "%a - %T -
 echo "streamripper started..."
 #fi
 
-echo streamripper | sudo -S cron
+#echo streamripper | sudo -S cron
+sudo cron
+echo "up and running..."
+
 tail -f /var/log/cron.log
 
-echo "up and running..."
