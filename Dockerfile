@@ -10,7 +10,7 @@ RUN apt-get update && \
 RUN touch /var/log/cron.log
 RUN chmod 777 /var/log/cron.log
 
-RUN useradd -m -d /home/streamripper streamripper && echo "streamripper:" | chpasswd && adduser streamripper sudo
+RUN useradd -m -d /home/streamripper streamripper && echo "streamripper:streamripper" | chpasswd && adduser streamripper sudo
 RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 
 USER streamripper
