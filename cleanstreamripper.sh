@@ -6,7 +6,9 @@ cd /home/streamripper/destination
 FREESPACE_THRESHOLD_MB=100
 # Verfügbaren Speicherplatz ermitteln
 availableSpace=$(df --output=avail . | tail -n 1)
+currentTimestamp=$(date)
 
+echo "${currentTimestamp}: availableSpace=$((availableSpace/1024)) MB"
 
 
 if [ -f "zyx.txt" ]; then
@@ -35,7 +37,7 @@ fi
 
 
 
-# Vergleichen und Meldung ausgeben
+# ggf. Platz machen
 if [ "$availableSpace" -lt "$((FREESPACE_THRESHOLD_MB * 1024))" ]; then
 	mv -f *.mp3 /home/streamripper/storage/
 fi
