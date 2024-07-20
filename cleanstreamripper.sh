@@ -8,7 +8,7 @@ FREESPACE_THRESHOLD_MB=100
 availableSpace=$(df --output=avail . | tail -n 1)
 currentTimestamp=$(date)
 
-echo "${currentTimestamp}: availableSpace=$((availableSpace/1024)) MB"
+echo "${currentTimestamp}: availableSpace=$((availableSpace/1024)) MB" >> /var/log/cron.log
 
 
 if [ -f "zyx.txt" ]; then
