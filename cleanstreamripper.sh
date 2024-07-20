@@ -39,7 +39,10 @@ fi
 
 # ggf. Platz machen
 if [ "$availableSpace" -lt "$((FREESPACE_THRESHOLD_MB * 1024))" ]; then
-	mv -f *.mp3 /home/streamripper/storage/
+	#mv -f *.mp3 /home/streamripper/storage/
+ 	for tempfilename in "*.mp3"; do
+	 	cp -f --no-preserve=mode,ownership "$tempfilename" /home/streamripper/storage/ && rm "$tempfilename"
+   	done
 fi
 
 
