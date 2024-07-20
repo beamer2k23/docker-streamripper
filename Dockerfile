@@ -7,8 +7,8 @@ RUN apt-get update && \
     apt-get install -y --no-install-recommends vim && \
     rm -rf /var/lib/apt/lists/*
 
-RUN touch /var/log/cron.log
-RUN chmod 777 /var/log/cron.log
+#RUN touch /var/log/cron.log
+#RUN chmod 777 /var/log/cron.log
 
 RUN useradd -m -d /home/streamripper streamripper && echo "streamripper:streamripper" | chpasswd -e && adduser streamripper sudo
 RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
