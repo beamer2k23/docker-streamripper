@@ -7,8 +7,8 @@ RUN apt-get update && \
     apt-get install -y --no-install-recommends vim && \
     rm -rf /var/lib/apt/lists/*
 
-#RUN touch /var/log/cron.log
-#RUN chmod 777 /var/log/cron.log
+RUN touch /var/log/cron.log
+RUN chmod 777 /var/log/cron.log
 
 RUN useradd -m -d /home/streamripper streamripper && echo "streamripper:streamripper" | chpasswd -e && adduser streamripper sudo
 RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
@@ -20,7 +20,7 @@ COPY --chmod=755 cleanstreamripper.sh /cleanstreamripper.sh
 RUN mkdir -p /home/streamripper/destination
 
 #RUN (crontab -l 2>/dev/null; echo "*/1 * * * * date >> /home/streamripper/destination/crontest.txt") | crontab -
-RUN (crontab -l 2>/dev/null; echo "37 * * * * /cleanstreamripper.sh") | crontab -
+RUN (crontab -l 2>/dev/null; echo "40 * * * * /cleanstreamripper.sh") | crontab -
 
 # expose relay port
 EXPOSE 8000
