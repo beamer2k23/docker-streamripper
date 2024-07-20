@@ -43,6 +43,7 @@ if [ "$availableSpace" -lt "$((FREESPACE_THRESHOLD_MB * 1024))" ]; then
  	for tempfilename in "*.mp3"; do
 	 	cp -f --no-preserve=mode,ownership "$tempfilename" /home/streamripper/storage/ && rm "$tempfilename"
    	done
+    echo "- moved files to storage" >> /var/log/cron.log
 fi
 
 
