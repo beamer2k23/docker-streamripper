@@ -10,5 +10,5 @@ echo "streamripper started..."
 sudo cron
 echo "up and running..."
 
-#tail -f /var/log/cron.log
+tail -f /var/log/cron.log
 
