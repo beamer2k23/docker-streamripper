@@ -3,7 +3,7 @@
 
 cd /home/streamripper/destination
 
-FREESPACE_THRESHOLD_MB=1900
+FREESPACE_THRESHOLD_MB=100
 # Verfügbaren Speicherplatz ermitteln
 availableSpace=$(df --output=avail . | tail -n 1)
 currentTimestamp=$(date)
