@@ -7,6 +7,8 @@ services:
     volumes:
       - /media/USB2GB/SST:/home/streamripper/destination
       - /media/DS500/SST:/home/streamripper/storage
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro      
     environment:
       - STREAMRIPPERSERVER=http://hi5.streamingsoundtracks.com
-      
+      - TZ=Europe/Berlin
