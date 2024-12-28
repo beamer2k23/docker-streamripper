@@ -1,6 +1,6 @@
 FROM debian:trixie-slim
 
-ENV TZ=Europe/Berlin
+#ENV TZ=Europe/Berlin
 
 RUN apt-get update && \
     apt-get install -y --no-install-recommends streamripper && \
