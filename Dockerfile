@@ -23,7 +23,6 @@ RUN mkdir -p /home/streamripper/destination
 
 #RUN (crontab -l 2>/dev/null; echo "*/1 * * * * date >> /home/streamripper/destination/crontest.txt") | crontab -
 RUN (crontab -l 2>/dev/null; echo "42 * * * * /cleanstreamripper.sh") | crontab -
-RUN (crontab -l 2>/dev/null; echo "5 * * * * pidof streamripper || /run.sh") | crontab -
 
 # expose relay port
 EXPOSE 8000
